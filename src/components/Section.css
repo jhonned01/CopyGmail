@@ -1,0 +1,10 @@
+.section {
+  display: flex;
+  align-items: center;
+}
+
+.secction--selected {
+  background-color: whitesmoke;
+  border-width: 3px !important;
+  min-width: 200px;
+}
