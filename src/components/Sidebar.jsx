@@ -13,11 +13,16 @@ import NoteIcon from "@material-ui/icons/Note";
 import PersonIcon from "@material-ui/icons/Person";
 import DuoIcon from "@material-ui/icons/Duo";
 import PhoneIcon from "@material-ui/icons/Phone";
+import { useDispatch } from "react-redux";
+import { opendSendMessage } from "../features/counter/mailSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="sidebar">
       <Button
+        onClick={() => dispatch(opendSendMessage())}
         className="sidebar__compose"
         startIcon={<AddIcon fontSize="large" />}
       >

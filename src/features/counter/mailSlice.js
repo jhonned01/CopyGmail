@@ -5,7 +5,6 @@ export const mailSlice = createSlice({
   initialState: {
     sendMessageIsOpen: false,
   },
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     opendSendMessage: (state) => {
       state.sendMessageIsOpen = true;
@@ -13,12 +12,11 @@ export const mailSlice = createSlice({
     closeSendMessage: (state) => {
       state.sendMessageIsOpen = false;
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
   },
 });
 
-export const { opendSendMessage, closeSendMessage } = counterSlice.actions;
+export const { opendSendMessage, closeSendMessage } = mailSlice.actions;
 
-export const selectMail = (state) => state.mail.value;
+export const selectSendMenssageIsOpen = (state) => state.mail.sendMessageIsOpen;
 
 export default mailSlice.reducer;
