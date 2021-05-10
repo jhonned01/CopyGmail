@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userlSlice = createSlice({
   name: "user",
   initialState: {
-    user: null,
+    user: false,
   },
   reducers: {
     login: (state, action) => {
@@ -20,6 +20,6 @@ export const userlSlice = createSlice({
 
 export const { login, logout } = userlSlice.actions;
 
-export const selectuser = (state) => state.user.sendMessageIsOpen;
+export const selectUser = (state) => state.user.user;
 
-export default mailSlice.reducer;
+export default userlSlice.reducer;

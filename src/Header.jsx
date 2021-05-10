@@ -6,7 +6,17 @@ import { ArrowDropDown } from "@material-ui/icons";
 import SearchIcon from "@material-ui/icons/Search";
 import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "./features/counter/userSlice";
+import { auth } from "./firebase";
 const Header = () => {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const singOut = () => {
+    auth.signOut().then(() => {
+      dispatch(logout());
+    });
+  };
   return (
     <div className="header">
       <div className="header__left">
@@ -14,7 +24,7 @@ const Header = () => {
           <MenuIcon />
         </IconButton>
         <img
-          src="https://graffica.info/wp-content/uploads/2020/10/nuevo-logo-de-gmail-1200x675.jpg"
+          src="https://cdn.vox-cdn.com/thumbor/g_nyLm8AT_WA7a79K-EhRZV0sE0=/0x0:1320x880/920x613/filters:focal(555x335:765x545):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/67587450/newgmaillogo.0.jpg"
           alt="logo"
         />
       </div>
@@ -31,7 +41,7 @@ const Header = () => {
         <IconButton>
           <NotificationsIcon />
         </IconButton>
-        <Avatar />
+        <Avatar src={user?.photoURL} onClick={singOut} />
       </div>
     </div>
   );
