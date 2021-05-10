@@ -18,13 +18,8 @@ export const userlSlice = createSlice({
   },
 });
 
-export const {
-  opendSendMessage,
-  closeSendMessage,
-  selectedMail,
-} = mailSlice.actions;
+export const { login, logout } = userlSlice.actions;
 
-export const selectSendMenssageIsOpen = (state) => state.mail.sendMessageIsOpen;
-export const selectClickMail = (state) => state.mail.selectedMail;
+export const selectuser = (state) => state.user.sendMessageIsOpen;
 
 export default mailSlice.reducer;
