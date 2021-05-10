@@ -15,6 +15,7 @@ function App() {
   const user = useSelector(selectUser);
   const sendMessageIsOpen = useSelector(selectSendMenssageIsOpen);
   const dispatch = useDispatch();
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -27,7 +28,7 @@ function App() {
         );
       }
     });
-  });
+  }, [user]);
 
   return (
     <Router>
