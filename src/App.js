@@ -28,7 +28,7 @@ function App() {
         );
       }
     });
-  }, [user]);
+  }, [user, dispatch]);
 
   return (
     <Router>
